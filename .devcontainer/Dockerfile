@@ -79,6 +79,8 @@ RUN apt-get update \
 # setup redirect for aks-rp
 RUN git config --global --add url."msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute".insteadOf "https://dev.azure.com/msazure/CloudNativeCompute/_git"
 RUN ssh-keygen -Y
+#missing mockgen above
+RUN GO111MODULE=on go get github.com/golang/mock/mockgen
 
 # Update this to "on" or "off" as appropriate
 ENV GO111MODULE=auto
